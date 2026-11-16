@@ -60,7 +60,24 @@ temperat和top_p的区别,其中temperature可以让低概率的词取到,而top
 
 
 
+## 流式输出
+
+在client.chat.completions.create()方法里面指定fluent = True
+
+不使用流式输出的输出
+
+print(response.choices[0].message.content)
+
+使用流式输出的时候的输出不能使用上面的输出,需要使用一个循环遍历每一个数据块
 
 
 
+```
+for chunk in response:
+    delta = chunk.choices[0].delta
+    # delta表示返回的增量,上面一行指的是从当前数据块中提取增量信息
+    # 流式输出采用的是增量返回机制
+    if delta.content:
+        print(delta.content,end="")
+```
 
