@@ -108,3 +108,14 @@ print("内存:",data["内存大小"])
 json.load()将json字符串转为python对象
 
 json.dumps()将python对象转为json字符串
+
+# 工具调用
+
+用户提问-->将tools工具定义发送给模型-->模型返回tool_calls-->python程序执行工具-->调用工具结果返回给模型-->模型生成最终回答
+
+
+
+## 第一步tools参数(告诉模型有哪些工具)
+
+
+
